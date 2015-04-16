@@ -1,0 +1,98 @@
+body {
+  font-family: "Helvetica Neue", "Lucida Grande", "Arial";
+  font-size: 13px;
+  text-align: left;
+  height: 100%;
+  color: #555;
+}
+h2 {
+  margin: 0px;
+  font-size: 22px;
+  color: #789;
+}
+.banner {
+  overflow: hidden;
+  margin: 10px;
+  background-color: #d3d3d3;
+  border-radius: 10px 10px 0px 0px;
+  height: 70px;
+}
+.banner .title {
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
+}
+.banner .login {
+  background-color: #789;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.banner .welcome {
+  background-color: #789;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.banner .logout {
+  background-color: #789;
+  position: absolute;
+  right: 20px;
+  top: 50px;
+}
+.block {
+  overflow: hidden;
+}
+.block .block-left {
+  float: left;
+  width: 100px;
+  position: absolute;
+  top: 85px;
+  left: 10px;
+  bottom: 80px;
+  background-color: #789;
+}
+.block .block-center {
+  position: absolute;
+  top: 85px;
+  left: 100px;
+  right: 100px;
+  bottom: 80px;
+  background-color: #d3d3d3;
+}
+.block .block-right {
+  float: right;
+  width: 100px;
+  position: absolute;
+  top: 85px;
+  right: 10px;
+  bottom: 80px;
+  background-color: #789;
+}
+.articles {
+  margin: 20px;
+  text-align: left;
+  width: 90%;
+}
+.articles .article {
+  margin: 20px;
+  background-color: #fff;
+}
+.articles .article .created_at {
+  display: none;
+}
+.articles .article .title {
+  overflow: hidden;
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #eee;
+}
+.articles .article .title .btnsupprimerarticle {
+  float: right;
+  position: absolute;
+  right: 20px;
+}
+.articles .article .body {
+  background-color: #fff;
+}

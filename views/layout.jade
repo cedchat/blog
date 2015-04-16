@@ -1,0 +1,29 @@
+doctype html
+html
+	head
+		title Blog Node.js				
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')		
+		script(type='text/javascript', src='/ckeditor/ckeditor.js')
+		script(type='text/javascript', src='/javascripts/jquery-1.11.1.min.js')
+		script(type='text/javascript', src='/javascripts/jquery.validate.min.js')
+		script(type='text/javascript', src='/javascripts/script.js')				
+		script(type='text/javascript').
+			addEventListener('load', prettyPrint, false);
+			$(document).ready(function(){
+			$('pre').addClass('prettyprint linenums');
+			});
+
+	body
+		.container
+			.page-header
+				.row
+					.col-lg-10
+						h1.text-center Exemple de blog avec Node.js
+					.col-lg-2
+						pull-right
+							if !user
+								input.login(type='button', class='btn btn-primary', value='Connexion', onclick="window.location.href='/login'")
+							if user						
+								h6 Bienvenue #{user.username}
+								input.logout(type='button', class='btn btn-primary btn-xs', value='Déconnexion', onclick="window.location.href='/logout'")
+			block content		

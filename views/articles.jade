@@ -1,0 +1,11 @@
+.articles
+	- each article in articles
+		.row-fluid
+			.span12
+				.panel.panel-default
+					.created_at= article.created_at
+					.panel-heading !{article.title}
+						if user
+							input.btnsupprimerarticle(type='button', class='btn btn-primary btn-xs pull-right', value='Supprimer', onClick="window.location.href='blog/delete/"+article._id+"';")
+					.panel-body
+						.contenu !{article.body}

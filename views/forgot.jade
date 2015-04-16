@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	form(method='POST')
+		legend Mot de passe oublié
+		.form-group
+			label(for='email') Email
+			input.form-control(type='text', name='email', placeholder='Email', required, autofocus)
+		if message && message.length
+			.alert.alert-danger= message
+		button.btn.btn-primary(type='submit') Réinitialiser votre mot de passe
+	

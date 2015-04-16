@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	form(method='POST')
+		legend Reset Password
+		.form-group
+			label(for='password') Nouveau mot de passe
+			input.form-control(type='password', name='password', value='', placeholder='Nouveau mot de passe', required, autofocus)
+		.form-group
+			label(for='confirm') Confirm Password
+			input.form-control(type='password', name='confirm', value='', placeholder='Confirmer', required)
+		.form-group
+			button.btn.btn-primary(type='submit') Modifier votre mot de passe

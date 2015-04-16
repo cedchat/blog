@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	.row-fluid
+		.span12
+			.panel.panel-default
+				.panel-heading Créer un article
+				.panel-body
+					form(method='post')
+						input(type='text', class='form-control', name='title', placeholder='Titre', id="editArticleTitle", required, autofocus)
+						br
+						textarea(name='body', class='form-control', rows=10, id='editArticleBody')
+						script.
+							CKEDITOR.replace('editArticleBody');
+						br
+						input(type='submit', class='btn btn-primary btn_block', value='Valider')

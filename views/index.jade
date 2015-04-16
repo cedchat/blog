@@ -1,0 +1,10 @@
+extends layout
+
+block content		
+	.col-sm-12
+		br
+		ul
+			if user
+				input(type='button', class='btn btn-primary', value='Ajouter un article', onclick="window.location.href='blog/new';")
+			br
+			include articles		

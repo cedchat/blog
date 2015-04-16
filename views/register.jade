@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	.row-fluid
+		.span12
+			.panel.panel-default
+				.panel-heading Création d'un compte
+				.panel-body
+					form(class='form-signin', action='/signup', method='POST')
+						input(type='text', name='username', class='form-control', placeholder='Login',required, autofocus)
+						p
+						input(type='password', name='password', class='form-control nomargin', placeholder='mot de passe', required)
+						p
+						input(type='email', name='email', class='form-control', placeholder='Email',required)
+						p
+						button(class='btn btn-lg btn-primary btn-block', type='submit') Enregistrement
+						p
+						.captchaHolder
+							{% autoescape false %} {{captcha}} {% endautoescape %}
+				#message
+					if message
+						h2.text-center.error-message #{message}
