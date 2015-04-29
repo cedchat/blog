@@ -1,12 +1,12 @@
 doctype html
 html
 	head
-		title Blog Node.js				
-		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')		
+		title Blog Node.js
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 		script(type='text/javascript', src='/ckeditor/ckeditor.js')
 		script(type='text/javascript', src='/javascripts/jquery-1.11.1.min.js')
 		script(type='text/javascript', src='/javascripts/jquery.validate.min.js')
-		script(type='text/javascript', src='/javascripts/script.js')				
+		script(type='text/javascript', src='/javascripts/script.js')
 		script(type='text/javascript').
 			addEventListener('load', prettyPrint, false);
 			$(document).ready(function(){
@@ -26,4 +26,4 @@ html
 							if user						
 								h6 Bienvenue #{user.username}
 								input.logout(type='button', class='btn btn-primary btn-xs', value='Déconnexion', onclick="window.location.href='/logout'")
-			block content		
+			block content

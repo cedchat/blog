@@ -5,7 +5,7 @@ block content
 		.col-lg-4
 			.panel.panel-default
 				.panel-heading Authentifiez-vous
-				.panel-body					
+				.panel-body
 					form(role='form', id='login-form', action='/login', method='post')
 						.form-group
 							input.form-control(type='email', name='email', id='email', placeholder='Email', required, autofocus)
@@ -13,7 +13,7 @@ block content
 							input.form-control(type='password', name='password', id='password', placeholder='mot de passe', required)
 						.form-group
 							input(type='submit', class='btn btn-primary', value = 'Valider')
-							br
+						.form-group
 							a(href='/forgot') Mot de passe oublié ?
 						if message && message.length
 							.alert.alert-danger= message

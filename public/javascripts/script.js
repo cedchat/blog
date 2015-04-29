@@ -38,14 +38,24 @@ $(document).ready(function(){
 			agree: "required"
 		  
 	    },
-			highlight: function(element) {
+		highlight: function(element) {
 				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-			},
-			success: function(element) {
+		},
+		success: function(element) {
 				element
-				.text('OK!').addClass('valid')
+				.addClass('valid')
 				.closest('.form-group').removeClass('has-error').addClass('has-success');
-			}
+		},
+		messages: {
+            email: {
+                required: "Spécifiez une adresse mail",
+                email: "Adresse mail incorrecte"
+            },
+            password: {
+                required: "Spécifiez un mot de passe",
+                minlength: "Le mot de passe doit contenir au moins 6 caractères"
+            }
+        }
 	  });
 
 }); // end document.ready
