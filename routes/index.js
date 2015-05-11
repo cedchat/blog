@@ -21,6 +21,10 @@ router.get('/blog/new', function(req, res){res.render('blog_new.jade',{user: req
 
 router.post('/blog/new', ArticleController.create);
 
+router.get('/blog/edit/:id', ArticleController.edit);
+
+router.post('/blog/edit/:id', ArticleController.save);
+
 router.get('/blog/delete/:id', ArticleController.delete);
 
 router.get('/login', function(req, res) {res.render('login',{ message: req.flash('message'),user: req.user});});
