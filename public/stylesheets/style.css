@@ -88,11 +88,6 @@ h2 {
   text-decoration: underline;
   background-color: #eee;
 }
-.articles .article .title .btnsupprimerarticle {
-  float: right;
-  position: absolute;
-  right: 20px;
-}
 .articles .article .body {
   background-color: #fff;
 }

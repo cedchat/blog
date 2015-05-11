@@ -19,7 +19,26 @@ exports.create = function(req, res){
 }
 
 exports.delete = function(req, res){
-	Article.remove({_id:req.params.id},function( error, docs) {
+	Article.remove({_id:req.params.id},function(error,docs){
         res.redirect('/')
     });
-};
+}
+
+exports.edit = function(req, res){
+    Article.findById(req.params.id,function(error,docs){
+		res.render('blog_edit.jade', {
+            article: docs,
+			user: req.user
+        });
+    });
+}
+
+exports.save = function(req, res){
+    console.log(req.param('title'));
+	Article.findById(req.params.id,function(error,article){
+	    article.title = req.param('title');
+	    article.body = req.param('body');
+	    article.save();
+        res.redirect('/')
+    });
+};   
