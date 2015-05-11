@@ -1,5 +1,5 @@
 # blog
 
-Développement d'un blog à la découverte de Node.js et bootstrap
+Blog application using Node.js
 
-Utilisation d'un base noSQL mongodb
+With express, mongoose and bootstrap
