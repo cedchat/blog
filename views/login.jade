@@ -4,17 +4,26 @@ block content
 	.row-fluid		
 		.col-lg-4
 			.panel.panel-default
-				.panel-heading Authentifiez-vous
+				.panel-heading Login
 				.panel-body
 					form(role='form', id='login-form', action='/login', method='post')
 						.form-group
-							input.form-control(type='email', name='email', id='email', placeholder='Email', required, autofocus)
+							.input-group
+								input.form-control(type='email', name='email', id='email', placeholder='Email', required, autofocus)
+								span.input-group-addon
+									i.fa.fa-pencil
 						.form-group
-							input.form-control(type='password', name='password', id='password', placeholder='mot de passe', required)
+							.input-group
+								input.form-control(type='password', name='password', id='password', placeholder='password', required)
+								span.input-group-addon
+									i.fa.fa-pencil
 						.form-group
 							input(type='submit', class='btn btn-primary', value = 'Valider')
+							#message
+							if message && message.length
+								p
+								.alert.alert-danger
+									text-center #{message}
 						.form-group
-							a(href='/forgot') Mot de passe oublié ?
-						if message && message.length
-							.alert.alert-danger= message
-					a(href='/signup', class='text-center new-account') Créer un compte
+							a(href='/forgot') Forgot password ?						
+					a(href='/signup', class='text-center new-account') Create user

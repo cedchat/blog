@@ -3,6 +3,7 @@ html
 	head
 		title Blog Node.js
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
 		script(type='text/javascript', src='/ckeditor/ckeditor.js')
 		script(type='text/javascript', src='/javascripts/jquery-1.11.1.min.js')
 		script(type='text/javascript', src='/javascripts/jquery.validate.min.js')
@@ -21,12 +22,12 @@ html
 						a(href='/',title='Blog')
 							img(align='center',src="/files/92281728688593b9ba61f22b9201682b.jpg",border=0,width=100,height=80)
 					.col-lg-8
-						h1.text-center Exemple de blog avec Node.js
+						h1.text-center Sample blog
 					.col-lg-2
-						pull-right
+						.pull-right
 							if !user
-								input.login(type='button', class='btn btn-primary', value='Connexion', onclick="window.location.href='/login'")
+								input.login(type='button', class='btn btn-primary', value='Log in', onclick="window.location.href='/login'")
 							if user						
-								h6 Bienvenue #{user.username}
-								input.logout(type='button', class='btn btn-primary btn-xs', value='Déconnexion', onclick="window.location.href='/logout'")
+								h6 Welcome #{user.username}
+								input.logout(type='button', class='btn btn-primary btn-xs', value='Log out', onclick="window.location.href='/logout'")
 			block content		

@@ -13,13 +13,13 @@ module.exports = function(passport){
 					if (err) {return done(err);}
 					// Username does not exist, log the error and redirect back
 					if (!user){					
-						console.log('Utilisateur introuvable');
-						return done(null, false, req.flash('message', 'Utilisateur introuvable.'));
+						console.log('User not found');
+						return done(null, false, req.flash('message', 'User not found.'));
 					}
 					// User exists but wrong password, log the error
 					if (!isValidPassword(user, password)){					
-						console.log('Mot de passe incorrect');
-						return done(null, false, req.flash('message', 'Mot de passe incorrect')); // redirect back to login page
+						console.log('incorrect password');
+						return done(null, false, req.flash('message', 'incorrect password')); // redirect back to login page
 					}
 					// User and password both match, return user from done method
 					// which will be treated like success

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var sweetcaptcha = new require('sweetcaptcha')(237706, '5f0353a18950b6359d22ac6c2a7dabe5', '5dc5db861d4f3f7a3487e6e6a6219c82');
 var ArticleController = require('../controllers/ArticleController.js');
 var UploadController = require('../controllers/UploadController.js');
 var ForgotController = require('../passport/forgot.js');
@@ -31,7 +32,7 @@ router.get('/login', function(req, res) {res.render('login',{ message: req.flash
 
 router.get('/logout', function(req, res) { req.logout(); res.redirect('/'); });
 
-router.get('/signup', function(req, res) {res.render('register',{message: req.flash('message'), user: req.user});});
+router.get('/signup', function(req, res) {sweetcaptcha.api('get_html', function(err,html){ res.render('register',{captcha : html ,message: req.flash('message'), user: req.user});});});
 
 router.get('/forgot', function(req, res) {res.render('forgot', {message: req.flash('message'), user: req.user});});
 
