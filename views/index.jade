@@ -1,10 +1,32 @@
 extends layout
 
-block content		
+block content
 	.col-sm-12
 		.row-fluid
 			.span12
 				if user
-					input(type='button', class='btn btn-primary', value='Ajouter un article', onclick="window.location.href='blog/new';")
+					.btn-group
+						button.btn.btn-primary(value='Add an article', onclick="window.location.href='blog/new';") Add an article
+						button.btn.btn-primary(data-toggle="modal", data-target="#category") Add a category
+					.modal.fade(id="category" role="dialog" aria-labelledby="Category" aria-hidden="true")
+						.modal-dialog.modal-content
+							.modal-header
+								.modal-title New category
+							.modal-body
+								form(id='category-form' data-async)
+									.form-group
+										.input-group
+											input.form-control(type='text', name='category', id='category', placeholder='Category', required, autofocus)
+											span.input-group-addon
+												i.fa.fa-pencil
+							.modal-footer
+								button.btn.btn-default(data-dismiss="modal") Close
+								button.btn.btn-primary(type='submit', form='category-form') Save
+								#message
+								if message && message.length
+									p
+									.alert.alert-danger
+										text-center #{message}								
 		br
+		include categories
 		include articles

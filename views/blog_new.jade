@@ -7,10 +7,19 @@ block content
 				.panel-heading Créer un article
 				.panel-body
 					form(method='post')
-						input(type='text', class='form-control', name='title', placeholder='Titre', id="editArticleTitle", required, autofocus)
+						input.form-control(type='text', name='title', placeholder='Titre', id="editArticleTitle", required, autofocus)
 						br
-						textarea(name='body', class='form-control', rows=10, id='editArticleBody')
+						textarea.form-control(name='body', rows=10, id='editArticleBody')
 						script.
 							CKEDITOR.replace('editArticleBody');
 						br
+						.categories
+							.panel.panel-default
+								.panel-heading Categories :							
+								.panel-body
+									.checkbox.checkbox-inline
+										- each category in categories
+											label(style="margin-left:30px; display: inline-block")
+												input(type='checkbox', name='category_list', value=category.name)
+												!{category.name}
 						input(type='submit', class='btn btn-primary btn_block', value='Valider')

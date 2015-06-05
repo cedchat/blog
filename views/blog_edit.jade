@@ -13,4 +13,13 @@ block content
 						script.
 							CKEDITOR.replace('editArticleBody');
 						br
+						.categories_edit
+							.panel.panel-default
+								.panel-heading Categories :							
+								.panel-body
+									.checkbox.checkbox-inline
+										- each category in categories											
+											label(style="margin-left:30px; display: inline-block")
+												input(type='checkbox', checked=article.categories.indexOf(category.name)!=-1, name='category_list', value=category.name)
+												!{category.name}
 						input(type='submit', class='btn btn-primary btn_block', value='Valider')

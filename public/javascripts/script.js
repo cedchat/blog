@@ -1,6 +1,12 @@
 $(document).ready(function(){
 
-		$('form').validate({
+	console.log('ready');
+	
+	var path = window.location.pathname;
+	console.log(path);
+	$('ul.nav.navbar-nav li a[href="'+path+'"]').parents('li').addClass('active');
+	
+	$('form').validate({
 	    rules: {
 			name: {
 				required: true,
@@ -26,7 +32,11 @@ $(document).ready(function(){
 			address: {
 				minlength: 10,
 				required: true
-			},		  
+			},
+			category: {
+				minlength: 3,
+				required: true
+			},
 			agree: "required"		  
 	    },		
 		errorElement: "span",
@@ -65,8 +75,30 @@ $(document).ready(function(){
 				required: "Confirm your password",
 				minlength: "Password min length is 6",
 				equalTo: "Incorrect confirm password"
-			}
+			},
+			category: {
+                required: "Enter the category name",
+                minlength: "category min length is 3"
+            }
         }
-	  });
+	});
+		
+	$('.modal').on('shown.bs.modal', function () {
+		lastfocus = $(this);		
+		$(this).find('input:text:visible:first').focus();
+	});
+	
+	$('#category-form').on('submit', function(e){
+		e.preventDefault();
+		$.ajax({
+			url : '/category/new', 
+			type: 'POST',
+			data : $('#category-form').serialize(),
+			success: function(data) {
+				$('#category').modal('hide');				
+				$('.categories').html(data);
+			}
+         });		 
+    });	
 
 }); // end document.ready

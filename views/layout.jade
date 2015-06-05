@@ -7,13 +7,13 @@ html
 		script(type='text/javascript', src='/ckeditor/ckeditor.js')
 		script(type='text/javascript', src='/javascripts/jquery-1.11.1.min.js')
 		script(type='text/javascript', src='/javascripts/jquery.validate.min.js')
+		script(type='text/javascript', src='/javascripts/bootstrap.min.js')
 		script(type='text/javascript', src='/javascripts/script.js')
 		script(type='text/javascript').
 			addEventListener('load', prettyPrint, false);
 			$(document).ready(function(){
 			$('pre').addClass('prettyprint linenums');
 			});
-
 	body
 		.container
 			.page-header
@@ -30,4 +30,4 @@ html
 							if user						
 								h6 Welcome #{user.username}
 								input.logout(type='button', class='btn btn-primary btn-xs', value='Log out', onclick="window.location.href='/logout'")
-			block content		
+			block content

@@ -4,10 +4,15 @@
 			.span12
 				.panel.panel-default
 					.created_at= article.created_at
-					.panel-heading !{article.title}
+					.panel-heading
+						strong !{article.title}
 						if user
 							.btn-group.pull-right
-								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='blog/edit/"+article._id+"';") Modifier
-								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='blog/delete/"+article._id+"';") Supprimer
+								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='blog/edit/"+article._id+"';") Edit
+								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='blog/delete/"+article._id+"';") Delete
 					.panel-body
 						.contenu !{article.body}
+					.panel-footer
+						-each category in article.categories
+							span(style="margin-left: 5px;").label.label-info !{category}
+							

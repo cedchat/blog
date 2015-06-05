@@ -1,0 +1,17 @@
+.categories
+	.navbar.navbar-default
+		.container
+			.navbar-header
+				button.navbar-toggle(data-toggle="collapse", data-target=".navbar-collapse")
+					span.sr-only Toogle Navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand Categories
+			.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li
+						a(href='/') All				
+					- each category in categories
+						li
+							a(href='/category/'+category.name) !{category.name}

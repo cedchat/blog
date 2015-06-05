@@ -1,18 +1,28 @@
 var Article = require('../models/ArticleModel.js');
+var CategoryController = require('../controllers/CategoryController.js');
 
-exports.list = function(rep, res) {
-	Article.find(function(error,docs){		
-		res.render('index.jade', {            
-            articles: docs,
-			user: rep.user
-        });
-    });
+exports.list = function(req,res) {
+	Article.find({},res);	
+}
+
+exports.listbycategory = function(req,res) {
+	CategoryController.list(null,function(err,cats) {
+		Article.find({categories: req.params.category},function(err,articles) {
+			res.render('index.jade',{
+				articles: articles,
+				categories : cats,
+				user: req.user
+			});	
+		});
+	});
 }
 
 exports.create = function(req, res){
+	console.log(req.param('category_list'));
 	new Article({
 		title: req.param('title'),
-        body: req.param('body')
+        body: req.param('body'),
+		categories : req.param('category_list')
 	}).save(function( error, docs) {
         res.redirect('/')
     });
@@ -25,19 +35,23 @@ exports.delete = function(req, res){
 }
 
 exports.edit = function(req, res){
-    Article.findById(req.params.id,function(error,docs){
-		res.render('blog_edit.jade', {
-            article: docs,
-			user: req.user
+    CategoryController.list(null,function(err,categories) {
+		Article.findById(req.params.id,function(error,docs){
+				console.log(docs);
+				res.render('blog_edit.jade', {
+				article: docs,
+				categories : categories,
+				user: req.user
+				});
         });
     });
 }
 
-exports.save = function(req, res){
-    console.log(req.param('title'));
+exports.save = function(req, res){    
 	Article.findById(req.params.id,function(error,article){
 	    article.title = req.param('title');
 	    article.body = req.param('body');
+		article.categories = req.param('category_list');
 	    article.save();
         res.redirect('/')
     });
