@@ -1,0 +1,16 @@
+.category_new
+	.modal.fade(id="category" role="dialog" aria-labelledby="Category" aria-hidden="true")
+		.modal-dialog.modal-content
+			.modal-header
+				.modal-title New category
+			.modal-body
+				form(id='category-form' data-async)
+					.form-group
+						.input-group
+							input.form-control(type='text', name='category', id='category', placeholder='Category', required, autofocus)
+							span.input-group-addon
+								i.fa.fa-pencil
+			.modal-footer
+				button.btn.btn-default(data-dismiss="modal") Close
+				button.btn.btn-primary(type='submit', form='category-form') Save
+			include message_alert

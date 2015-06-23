@@ -1,10 +1,12 @@
 $(document).ready(function(){
 
-	console.log('ready');
-	
 	var path = window.location.pathname;
-	console.log(path);
+	
 	$('ul.nav.navbar-nav li a[href="'+path+'"]').parents('li').addClass('active');
+	
+	if ($('#username').length && path !== '/' && !$('.contenu').length) {
+		$('ul.nav.navbar-nav li a[href="'+path+'"]').append('<a class="fa fa-remove" style="margin-left: 10px;" href="'+path+'/delete"><\a>');
+	}
 	
 	$('form').validate({
 	    rules: {
@@ -85,7 +87,11 @@ $(document).ready(function(){
 		
 	$('.modal').on('shown.bs.modal', function () {
 		lastfocus = $(this);		
-		$(this).find('input:text:visible:first').focus();
+		$(this).find('input:text:visible:first').focus();		
+	});
+
+	$('.modal').on('hidden.bs.modal', function () {
+		$('.message_alert').html('');
 	});
 	
 	$('#category-form').on('submit', function(e){
@@ -95,8 +101,11 @@ $(document).ready(function(){
 			type: 'POST',
 			data : $('#category-form').serialize(),
 			success: function(data) {
-				$('#category').modal('hide');				
+				$('#category').modal('hide');
 				$('.categories').html(data);
+			},
+			error : function(data) {				
+				$('.message_alert').html(data.responseText);
 			}
          });		 
     });	

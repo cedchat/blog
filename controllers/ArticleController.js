@@ -1,5 +1,6 @@
 var Article = require('../models/ArticleModel.js');
 var CategoryController = require('../controllers/CategoryController.js');
+var _this = this;
 
 exports.list = function(req,res) {
 	Article.find({},res);	
@@ -12,7 +13,7 @@ exports.listbycategory = function(req,res) {
 				articles: articles,
 				categories : cats,
 				user: req.user
-			});	
+			});
 		});
 	});
 }
@@ -29,15 +30,15 @@ exports.create = function(req, res){
 }
 
 exports.delete = function(req, res){
+	backURL=req.header('Referer');	
 	Article.remove({_id:req.params.id},function(error,docs){
-        res.redirect('/')
+        res.redirect(backURL);
     });
 }
 
 exports.edit = function(req, res){
     CategoryController.list(null,function(err,categories) {
-		Article.findById(req.params.id,function(error,docs){
-				console.log(docs);
+		Article.findById(req.params.id,function(error,docs){				
 				res.render('blog_edit.jade', {
 				article: docs,
 				categories : categories,
@@ -47,12 +48,12 @@ exports.edit = function(req, res){
     });
 }
 
-exports.save = function(req, res){    
+exports.save = function(req, res){
 	Article.findById(req.params.id,function(error,article){
 	    article.title = req.param('title');
 	    article.body = req.param('body');
 		article.categories = req.param('category_list');
 	    article.save();
-        res.redirect('/')
+        res.redirect('/');
     });
-};   
+};

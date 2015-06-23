@@ -8,8 +8,8 @@
 						strong !{article.title}
 						if user
 							.btn-group.pull-right
-								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='blog/edit/"+article._id+"';") Edit
-								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='blog/delete/"+article._id+"';") Delete
+								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='/blog/edit/"+article._id+"';") Edit
+								button.btn.btn-default.btn-xs(type='button', onClick="window.location.href='/blog/delete/"+article._id+"';") Delete
 					.panel-body
 						.contenu !{article.body}
 					.panel-footer

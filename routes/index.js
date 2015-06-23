@@ -33,6 +33,8 @@ router.get('/blog/delete/:id', isAuthenticated, ArticleController.delete);
 
 router.post('/category/new', isAuthenticated, CategoryController.create);
 
+router.get('/category/:category/delete', isAuthenticated, CategoryController.delete);
+
 router.get('/login', function(req, res) {res.render('login',{ message: req.flash('message'),user: req.user});});
 
 router.get('/logout', function(req, res) { req.logout(); res.redirect('/'); });
