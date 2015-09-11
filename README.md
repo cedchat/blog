@@ -32,6 +32,10 @@ https://ide.c9.io/cedchat/blog
 
 Delete *data/mongod.lock* file
 
+<<<<<<< HEAD
 open a bash prompt and execute command *./mongod*
+=======
+open a bash prompt and execute tje command *./mongod*
+>>>>>>> 2a0affd8ad56c87336eee1885907b6d688f90830
 
 Start application with Node.js runner and *app.js* command
