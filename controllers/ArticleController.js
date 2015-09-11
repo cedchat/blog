@@ -3,12 +3,12 @@ var CategoryController = require('../controllers/CategoryController.js');
 var _this = this;
 
 exports.list = function(req,res) {
-	Article.find({},res);	
+	Article.find({},null, {sort: '-date'},res);	
 }
 
 exports.listbycategory = function(req,res) {
 	CategoryController.list(null,function(err,cats) {
-		Article.find({categories: req.params.category},function(err,articles) {
+		Article.find({categories: req.params.category},null, {sort: '-date'},function(err,articles) {
 			res.render('index.jade',{
 				articles: articles,
 				categories : cats,
@@ -21,6 +21,7 @@ exports.listbycategory = function(req,res) {
 exports.create = function(req, res){
 	console.log(req.param('category_list'));
 	new Article({
+		author: req.user.username,
 		title: req.param('title'),
         body: req.param('body'),
 		categories : req.param('category_list')

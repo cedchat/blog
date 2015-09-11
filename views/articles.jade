@@ -13,6 +13,11 @@
 					.panel-body
 						.contenu !{article.body}
 					.panel-footer
-						-each category in article.categories
-							span(style="margin-left: 5px;").label.label-info !{category}
+						.row
+							.col-lg-8
+								-each category in article.categories
+									span(style="margin-left: 5px;").label.label-info !{category}							
+							.col-lg-4
+								.pull-right
+									span.label.label-info !{article.date.toDateString()} by !{article.author}
 							

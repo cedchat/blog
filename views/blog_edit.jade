@@ -4,7 +4,7 @@ block content
 	.row-fluid
 		.span12
 			.panel.panel-default
-				.panel-heading Modifier un article
+				.panel-heading Edit article
 				.panel-body
 					form(method='post', action='/blog/edit/'+article._id)
 						input(type='text', class='form-control', name='title', placeholder='Titre', id="editArticleTitle", value=article.title, required, autofocus)

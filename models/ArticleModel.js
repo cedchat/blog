@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
 	
 var articleSchema = new Schema({	
 	date : { type: Date, required: true, default: Date.now },
+	author: { type: String },
 	title : { type: String, required: true },
 	body : { type: String },
 	categories : [String],
