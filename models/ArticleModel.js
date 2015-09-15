@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+	mongoosePaginate = require('mongoose-paginate');
     Schema = mongoose.Schema;
 	
 var articleSchema = new Schema({	
@@ -9,5 +10,7 @@ var articleSchema = new Schema({
 	categories : [String],
 	facets : [{ name: String }, { value: String }]
 }, {collection: 'articles'});
+
+articleSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Article', articleSchema);

@@ -12,6 +12,7 @@ var session = require('express-session');
 var https = require('https');
 var fs = require('fs');
 var mongoose = require('mongoose');
+var paginate = require('express-paginate');
 
 var options = {
 	key: fs.readFileSync('ssl/key.pem'),
@@ -19,6 +20,7 @@ var options = {
 
 var app = express();
 
+app.use(paginate.middleware(5, 50));
 app.use(favicon(__dirname + '/public/files/favicon.ico'));
 
 https.createServer(options, app).listen(443);

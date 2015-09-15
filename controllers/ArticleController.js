@@ -3,16 +3,18 @@ var CategoryController = require('../controllers/CategoryController.js');
 var _this = this;
 
 exports.list = function(req,res) {
-	Article.find({},null, {sort: '-date'},res);	
+	Article.paginate({},{page: req.query.page, limit: req.query.limit, sortBy: {date: -1}},res);	
 }
 
 exports.listbycategory = function(req,res) {
 	CategoryController.list(null,function(err,cats) {
-		Article.find({categories: req.params.category},null, {sort: '-date'},function(err,articles) {
+		Article.paginate({categories: req.params.category},{page: req.query.page, limit: req.query.limit, sortBy: {date: -1}},function(err,articles,pageCount,itemCount) {
 			res.render('index.jade',{
 				articles: articles,
 				categories : cats,
-				user: req.user
+				user: req.user,
+				pageCount: pageCount,
+				itemCount: itemCount				
 			});
 		});
 	});
