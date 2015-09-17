@@ -1,0 +1,23 @@
+#myCarousel {
+	width: 100%;
+	height: 300px;	
+	color: white;
+}
+
+.carousel-inner { 
+	padding-bottom:40px; 
+}
+
+.carousel-caption {
+  	position: relative;  	  	
+  	left: 20%;
+	max-width:60%;
+}
+
+.img-responsive {
+	position:relative;
+	top:10px;
+	display:block;
+	max-height:150px;
+	max-width:60%;
+}

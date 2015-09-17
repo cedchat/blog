@@ -5,6 +5,7 @@ html
 		link(rel='shortcut icon', href='/files/favicon.ico', type='image/x-icon') 
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 		link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+		link(rel='stylesheet', href='/stylesheets/blog.css')
 		script(type='text/javascript', src='/ckeditor/ckeditor.js')
 		script(type='text/javascript', src='/javascripts/jquery-1.11.1.min.js')
 		script(type='text/javascript', src='/javascripts/jquery.validate.min.js')
@@ -28,7 +29,7 @@ html
 						.pull-right
 							if !user
 								input.login(type='button', class='btn btn-primary', value='Log in', onclick="window.location.href='/login'")
-							if user						
+							if user
 								h6(id='username') Welcome #{user.username}
-								input.logout(type='button', class='btn btn-primary btn-xs', value='Log out', onclick="window.location.href='/logout'")
+								input.logout(type='button', class='btn btn-primary btn-xs', value='Log out', onclick="window.location.href='/logout'")						
 			block content

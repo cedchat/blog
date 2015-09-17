@@ -1,0 +1,22 @@
+#myCarousel.carousel.bg-primary.slide(data-ride='carousel')
+	ol.carousel-indicators
+		li.active(data-target='#myCarousel', data-slide-to='0')
+		li(data-target='#myCarousel', data-slide-to='1')
+		li(data-target='#myCarousel', data-slide-to='2')
+	.carousel-inner
+		.item.active
+			img.img-responsive.center-block(src='/files/Node.svg', alt='First slide')
+			.carousel-caption
+				h3 Create your own blog using Node.js
+		.item
+			img.img-responsive.center-block(src='/files/Bootstrap.png', alt='First slide')
+			.carousel-caption
+				h3 Using Boostrap and Jquery
+		.item
+			img.img-responsive.center-block(src='/files/pariou_blog.jpg', alt='First slide')
+			.carousel-caption
+				h3 Try it now !
+	a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+		i.glyphicon-chevron-left.fa.fa-chevron-left
+	a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+		i.glyphicon-chevron-right.fa.fa-chevron-right

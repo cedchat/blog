@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	include carousel
 	.col-sm-12
 		.row-fluid
 			.span12
@@ -8,7 +9,7 @@ block content
 					.btn-group
 						button.btn.btn-primary(onclick="window.location.href='/blog/new';") Add an article
 						button.btn.btn-primary(id='btn_new_category' data-toggle="modal", data-target="#category") Add a category
-					include category_new							
+					include category_new
 		br
 		include categories
 		include articles
